@@ -41,6 +41,15 @@ function App() {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== product.id));
   };
 
+  const handleCheckOut = () => {
+    if (cartItems.length > 0) {
+      toast.success("Purchase completed successfully!");
+      setCartItems([]);
+    } else {
+      toast.error("Your cart is empty!");
+    }
+  };
+
   return (
     <div>
       <nav className="flex justify-between my-3 px-48 max-sm:px-8">
@@ -60,6 +69,8 @@ function App() {
               cartItems={cartItems}
               onUpdateCart={handleUpdateCart}
               onRemoveFromCart={handleRemoveFromCart}
+              setCartItems={setCartItems}
+              onCheckOut={handleCheckOut}
             />
           }
         />

@@ -1,7 +1,7 @@
 import CartItem from "./CartItem";
 import CheckOutButton from "./CheckOutButton";
 
-const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
+const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart, setCartItems }) => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -21,7 +21,7 @@ const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
           ))}
           <div className="flex flex-col gap-3 items-end mt-3 w-80">
             <p className="font-bold">Total: ${totalPrice.toFixed(2)}</p>
-            <CheckOutButton />
+            <CheckOutButton cartItems={cartItems} setCartItems={setCartItems} />
           </div>
         </div>
       )}
