@@ -6,7 +6,7 @@ const CheckOutButton = ({ cartItems }) => {
 
   const handleCheckOut = () => {
     if (cartItems.length > 0) {
-      toast.success("Purchase completed successfully!");
+      // toast.success("Purchase completed successfully!");
       navigate("/thank-you", { state: { cartItems } });
     } else {
       toast.error("Your cart is empty!");
