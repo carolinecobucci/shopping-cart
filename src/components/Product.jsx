@@ -10,10 +10,15 @@ const Product = ({ product, onAddToCart }) => {
       <h3 className="text-sm font-semibold mt-2">{product.name}</h3>
       <p className="text-sm font-bold mt-2">${product.price}</p>
       <div className="flex justify-between mt-3 gap-3">
-        <select className="border rounded-lg text-sm px-3 py-1">
-          <option value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-            1
-          </option>
+        <select
+          onChange={(e) => setQuantity(parseInt(e.target.value))}
+          className="border rounded-lg text-sm px-2 py-1"
+        >
+          {[...Array(10).keys()].map((x) => (
+            <option key={x + 1} value={x + 1}>
+              {x + 1}
+            </option>
+          ))}
         </select>
         <button
           onClick={() => onAddToCart(product, quantity)}

@@ -27,6 +27,20 @@ function App() {
     });
   };
 
+  const handleUpdateCart = (product, quantity) => {
+    toast.info(`${product.name} quantity updated!`);
+    setCartItems((prevItems) => {
+      return prevItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: +quantity } : item
+      );
+    });
+  };
+
+  const handleRemoveFromCart = (product) => {
+    toast.error(`${product.name} was removed from cart!`);
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== product.id));
+  };
+
   return (
     <div>
       <nav className="flex justify-between my-3 px-48 max-sm:px-8">
@@ -39,7 +53,16 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Catalog onAddToCart={handleAddCart} />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartItems={cartItems}
+              onUpdateCart={handleUpdateCart}
+              onRemoveFromCart={handleRemoveFromCart}
+            />
+          }
+        />
         <Route path="/thank-you" element={<ThankYouPage />} />
       </Routes>
       <ToastContainer
