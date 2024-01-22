@@ -1,25 +1,25 @@
 [
   {
     "id": 1,
-    "name": "Rel\u00f3gio Elegante",
+    "name": "Watch",
     "price": 50.99,
     "image": "https://source.unsplash.com/featured/?watch"
   },
   {
     "id": 2,
-    "name": "C\u00e2mera Vintage",
+    "name": "Vintage Camera",
     "price": 85.5,
     "image": "https://source.unsplash.com/featured/?camera"
   },
   {
     "id": 3,
-    "name": "Fones de Ouvido",
+    "name": "Headphone",
     "price": 35.99,
     "image": "https://source.unsplash.com/featured/?headphones"
   },
   {
     "id": 4,
-    "name": "T\u00eanis de Corrida",
+    "name": "Running Shoes",
     "price": 120.0,
     "image": "https://source.unsplash.com/featured/?sneakers"
   },
@@ -31,7 +31,7 @@
   },
   {
     "id": 6,
-    "name": "Livro de Aventura",
+    "name": "Book",
     "price": 19.99,
     "image": "https://source.unsplash.com/featured/?book"
   }
