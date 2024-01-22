@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import Catalog from "./components/Catalog";
@@ -10,6 +10,17 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+
+  // Load cart items from localStorage when the component mounts
+  useEffect(() => {
+    const savedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(savedCartItems);
+  }, []);
+
+  // Save cart items to localStorage whenever the cartItems state changes
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const handleAddCart = (product, quantity) => {
     setCartItems((prevItems) => {
